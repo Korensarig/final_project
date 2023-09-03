@@ -38,22 +38,24 @@ Here are some examples of how to use the script:
 
 bash
 # Run the program with Random Forest regression and PCA feature selection
-python model.py --regression RF --featureselection PCA
+python3.10 model.py --regression RF --featureselection PCA
 
 # Run the program with Linear Regression, enabling verbose mode
-python model.py --regression L --verbose
+python3.10 model.py --regression L --verbose
 
 # Run the program with all regression methods and supervised feature selection
 python model.py --regression all --featureselection SUPERVISED
 # Run the program with Random Forest regression and PCA feature selection
-python model.py --regression RF --featureselection PCA
+python3.10 model.py --regression RF --featureselection PCA
 
 # Run the program with Linear Regression, enabling verbose mode
-python model.py --regression L --verbose
+python3.10 model.py --regression L --verbose
 
 # Run the program with all regression methods and supervised feature selection
-python model.py --regression all --featureselection SUPERVISED
+python3.10 model.py --regression all --featureselection SUPERVISED
 
+## Notice!
+this code requires python3.10 or a newer version. 
 
 
 
