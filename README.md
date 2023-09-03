@@ -12,7 +12,7 @@ This is a Python script for predicting Raven scores from brain fMRI scans using 
 To run the script, use the following command:
 
 ```bash
-python model.py [options]
+python3.10 model.py [options]
 Options
 --bootstrap: Specify the number of bootstrap iterations. If set to a value different from 0, the program will run the given number of times with permutation in the Raven scores.
 
