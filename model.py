@@ -24,6 +24,7 @@ VOXELS_NUM = 91282
 ALPHA_OPTIONS = np.concatenate((np.array([0.05, 0.1, 0.5, 1.0, 2.0, 5.0]),np.arange(50,900,5, dtype = 'float')))
 
 SUBJECT_DATA_PATH = 'students_study/data/before/0{num_str}/MNINonLinear/Results/tfMRI_EmotionalNBack_AP/tfMRI_EmotionalNBack_AP_s4_MSMAll_hp2000_clean.feat/GrayordinatesStats/zstat1.dtseries.nii'
+STUDENTS_SCORES = 'raven_scores_wo31.csv'
 
 SEED = 191
 random.seed(SEED)
@@ -209,14 +210,8 @@ def scores_predictions_models(args, scores, reduced_data, reduce_data_method, te
 
     # Compute the mean squared error between the predicted and actual test scores
     print_models_statistics(normalized_original_scores, test_scores_pred, models_serials)
-    bfp.get_feature_importance(True)
-    bfn.get_feature_importance(True)
-    with open(f'vector_p_{start_time}.txt', "w") as a:
-        a.write(str(bfp.get_as_vector()))
-
-    with open(f'vector_n_{start_time}.txt', "w") as a:
-        a.write(str(bfn.get_as_vector()))
-
+    bfp.get_feature_importance(False)
+    bfn.get_feature_importance(False)
 
     return test_scores_pred, normalized_original_scores
 
@@ -252,7 +247,7 @@ if __name__ == '__main__':
     print_verbose(">> Loading subjects' data")
     fmri_data = read_fmri_data()
     scores = []
-    scores = np.loadtxt("raven_scores_wo31.csv", 
+    scores = np.loadtxt(STUDENTS_SCORES, 
                  max_rows=SUBJECTS, delimiter=",", usecols=[1])
     print_verbose(">> Done loading data")
 
