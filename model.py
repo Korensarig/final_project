@@ -189,7 +189,7 @@ def scores_predictions_models(args, scores, reduced_data, reduce_data_method, te
                 'max_depth': np.append(np.arange(1, 20, 1, dtype=int), None),  # Default value is None
                 'max_features': [1.0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],  # Default value is 1.0
             }
-            rf_model = RandomForestRegressor(random_state=SEED)
+            rf_model = RandomForestRegressor()
             grid_search = GridSearchCV(rf_model, param_grid, scoring=None, cv=10, n_jobs=-1)
             grid_search.fit(fmri_train, scores_train)
             rf_estimator = grid_search.best_estimator_
